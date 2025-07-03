@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Propietario</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0e6ee;
+            color: white;
+            text-align: center;
+        }
+        
+        header {
+ background: linear-gradient(to right,#d600b9, #2c0045);
+ padding: 5px;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+ display: flex;
+ justify-content: space-between;
+}
+
+header img {
+ width: 80px;
+ height: auto;
+ justify-content: left;
+
+}
+
+nav {
+ display: flex;
+ margin-top: 5px;
+ gap: 30px;
+}
+.links a {
+ text-decoration: none;
+ color: #e6d8d8;
+ font-weight: bold;
+
+}
+        
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            color: #4A148C;
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #6A1B9A;
+        }
+        
+        .button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #6A1B9A;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #4A148C;
+        }
+        
+        .seccion {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .info-box,
+        .mascota,
+        .historia {
+            background-color: #f3e5f5;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        
+        .btn-secundario {
+            background-color: #6A1B9A;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .formulario input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        
+        .formulario button {
+            background-color: #6A1B9A;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .historia {
+            font-size: 14px;
+            display: none;
+        }
+        
+        footer {
+            margin: 40px 0;
+            font-size: 12px;
+            color: #ccc;
+            text-align: center;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+   <header>
+     <nav class="logo">
+        <img src="logo.png" title="logo" alt="logo">
+    </nav>
+    <nav class="links">  
+        <a href="error404.html">Comprar</a> 
+        <a href="dashboard.html" title="Dashboard">Veterinaria</a> 
+        <a href="formulario.html" title="Formulario">Registrar Mascota</a> 
+        <a href="login.html" title="login">Cerrar sesion </a>    
+    </nav>
+</header>
+    <div class="container">
+        <h2>Bienvenido (⁠◠⁠‿⁠◕⁠) </h2>
+
+        <button class="button" onclick="toggleSeccion('datos')">🧑 Datos del Propietario</button>
+        <div id="datos" class="seccion">
+            <div class="info-box" id="datosPropietario">
+                <p><strong>Tipo de Documento:</strong> C.C.</p>
+                <p><strong>Número:</strong> 1090524387</p>
+                <p><strong>Nombre:</strong> Maryi Grajales</p>
+                <p><strong>Dirección:</strong> Calle 123 #45-67</p>
+                <p><strong>Teléfono:</strong> 3202270102</p>
+            </div>
+            <button class="btn-secundario" onclick="mostrarFormulario()">✏️ Actualizar Datos</button>
+            <div id="formularioEditar" class="formulario" style="display: none;">
+                <input type="text" id="tipoDoc" placeholder="Tipo de Documento">
+                <input type="text" id="numeroDoc" placeholder="Número de Documento">
+                <input type="text" id="nombre" placeholder="Nombre Completo">
+                <input type="text" id="direccion" placeholder="Dirección">
+                <input type="text" id="telefono" placeholder="Teléfono">
+                <button onclick="guardarDatos()">💾 Guardar</button>
+            </div>
+        </div>
+
+        <button class="button" onclick="toggleSeccion('mascotas')">🐶 Mascotas</button>
+        <div id="mascotas" class="seccion">
+
+            <!-- Mascota Sara -->
+            <div class="mascota">
+                <h4>🐾 Sara</h4>
+                <button class="btn-secundario" onclick="toggleHistoria('sara')">📋 Historia Clínica</button>
+                <div id="historia-sara" class="historia">
+                    <p><strong>Raza:</strong> Labrador</p>
+                    <p><strong>Color:</strong> Negro</p>
+                    <p><strong>Edad:</strong> 5 años</p>
+                    <p><strong>Fecha de Vacunación:</strong> 2024-12-01</p>
+                    <p><strong>Vacuna Aplicada:</strong> Rabia</p>
+                    <p><strong>Medicamentos:</strong> Antibióticos (abril 2024)</p>
+                    <button class="btn-secundario" onclick="imprimirHistoria('sara')">🖨️ Imprimir Historia</button>
+                </div>
+            </div>
+
+            <!-- Mascota Max -->
+            <div class="mascota">
+                <h4>🐾 Max</h4>
+                <button class="btn-secundario" onclick="toggleHistoria('max')">📋 Historia Clínica</button>
+                <div id="historia-max" class="historia">
+                    <p><strong>Raza:</strong> Schnauzer</p>
+                    <p><strong>Color:</strong> Negro</p>
+                    <p><strong>Edad:</strong> 6 meses</p>
+                    <p><strong>Fecha de Vacunación:</strong> 2024-12-01</p>
+                    <p><strong>Vacuna Aplicada:</strong> Rabia</p>
+                    <p><strong>Medicamentos:</strong> Antibióticos (abril 2024)</p>
+                    <button class="btn-secundario" onclick="imprimirHistoria('max')">🖨️ Imprimir Historia</button>
+                </div>
+            </div>
+
+            <!-- Mascota Hanna -->
+            <div class="mascota">
+                <h4>🐾 Hanna</h4>
+                <button class="btn-secundario" onclick="toggleHistoria('hanna')">📋 Historia Clínica</button>
+                <div id="historia-hanna" class="historia">
+                    <p><strong>Raza:</strong> Atigrada</p>
+                    <p><strong>Color:</strong> Blanco, gris y naranja</p>
+                    <p><strong>Edad:</strong> 6 meses</p>
+                    <p><strong>Fecha de Vacunación:</strong> 2025-01-15</p>
+                    <p><strong>Vacuna Aplicada:</strong> Moquillo</p>
+                    <p><strong>Medicamentos:</strong> Ninguno</p>
+                    <button class="btn-secundario" onclick="imprimirHistoria('hanna')">🖨️ Imprimir Historia</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Contenedor invisible para imprimir PDF -->
+    <div id="print-area" style="display: none;"></div>
+
+    <footer>
+        © 2025 App Cannia. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        function toggleSeccion(id) {
+            const seccion = document.getElementById(id);
+            const secciones = document.querySelectorAll('.seccion');
+            secciones.forEach((s) => {
+                if (s !== seccion) s.style.display = 'none';
+            });
+            seccion.style.display = (seccion.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function toggleHistoria(id) {
+            const historia = document.getElementById("historia-" + id);
+            historia.style.display = (historia.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function mostrarFormulario() {
+            const form = document.getElementById("formularioEditar");
+            form.style.display = (form.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function guardarDatos() {
+            const tipo = document.getElementById("tipoDoc").value;
+            const numero = document.getElementById("numeroDoc").value;
+            const nombre = document.getElementById("nombre").value;
+            const direccion = document.getElementById("direccion").value;
+            const telefono = document.getElementById("telefono").value;
+
+            const div = document.getElementById("datosPropietario");
+            div.innerHTML = `
+      <p><strong>Tipo de Documento:</strong> ${tipo}</p>
+      <p><strong>Número:</strong> ${numero}</p>
+      <p><strong>Nombre:</strong> ${nombre}</p>
+      <p><strong>Dirección:</strong> ${direccion}</p>
+      <p><strong>Teléfono:</strong> ${telefono}</p>
+    `;
+            document.getElementById("formularioEditar").style.display = 'none';
+        }
+
+        function imprimirHistoria(id) {
+            const historiaOriginal = document.getElementById("historia-" + id);
+            const printArea = document.getElementById("print-area");
+
+            printArea.innerHTML = `
+      <h2 style="color:#6A1B9A;font-family:Segoe UI;">Historia Clínica</h2>
+      ${historiaOriginal.innerHTML}
+    `;
+            printArea.style.display = "block";
+
+            const opciones = {
+                margin: 0.5,
+                filename: `historia_clinica_${id}.pdf`,
+                image: {
+                    type: 'jpeg',
+                    quality: 0.98
+                },
+                html2canvas: {
+                    scale: 2
+                },
+                jsPDF: {
+                    unit: 'in',
+                    format: 'letter',
+                    orientation: 'portrait'
+                }
+            };
+
+            setTimeout(() => {
+                html2pdf().set(opciones).from(printArea).save().then(() => {
+                    printArea.style.display = "none";
+                });
+            }, 500);
+        }
+    </script>
+
+</body>
+
+</html>
