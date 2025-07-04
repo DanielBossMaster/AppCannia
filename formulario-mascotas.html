@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro de Mascota - CANNIA</title>
+  <style>
+    header {
+      background: linear-gradient(to right, #d600b9, #2c0045);
+      padding: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header img {
+      width: 80px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: #e6d8d8;
+      font-weight: bold;
+    }
+   
+
+    .contenedor {
+      background-color: #f0e6ee;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+
+     
+
+    .contenedor-form {
+      width: 50%;
+      max-width: 500px;
+      background: #f8f4fa;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(150, 146, 149, 0.856);
+      position: relative;
+      padding: 30px;
+    }
+
+    .contenedor-img {
+      width: 30%;
+      position: absolute;
+      top: -15%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .contenedor-img img {
+      width: 120px;
+    }
+
+    h2 {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  color: #5c317a;
+}
+    .contenedor-campo {
+      margin: 12px 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contenedor-campo label {
+      font-size: 15px;
+    }
+
+    .contenedor-campo input,
+    .contenedor-campo select,
+    .contenedor-campo textarea {
+      background: none;
+      border-bottom: 1px solid #999;
+      font-size: 15px;
+      padding: 5px;
+      outline: none;
+    }
+
+    .contenedor-campo input:focus,
+    .contenedor-campo select:focus,
+    .contenedor-campo textarea:focus {
+      border-bottom: 1px solid #7d007d;
+    }
+
+    .button-seccion {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 25px;
+    }
+
+    .button-seccion button {
+      background-color: #5e2286;
+      color: #f0e6ee;
+      padding: 8px 20px;
+      border-radius: 7px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
+      transition: 0.3s;
+      font-weight: bold;
+      letter-spacing: 0.8px;
+    }
+
+    .button-seccion button:hover {
+      background-color: #f0e6ee;
+      color: #7d007d;
+    }
+
+    .inicio img {
+
+      width: 120px;
+      height: auto;
+    }
+
+    footer {
+      position: flex;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      color: #111010;
+    }
+    .contenedor-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: -40px;
+}
+
+.contenedor-logo img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: -20px;
+  margin-bottom: 5px;
+  background: white;
+  padding: 5px;
+}
+  </style>
+</head>
+ <header>
+  <nav class="logo">
+    <img src="logo.png" alt="logo">
+  </nav>
+  <nav class="links">
+    <a href="login.html">Volver al inicio </a>
+  </nav>
+</header>
+<body>
+  <div class="contenedor">
+    
+    <div class="contenedor-form">
+        <div class="contenedor-logo">
+  <img src="logo2.png" alt="Logo Cannia" />
+</div>
+  
+      <h2>Registrar Mascota</h2>
+      <form action="#" method="POST" enctype="multipart/form-data">
+        <div class="contenedor-campo">
+          <label for="nombreMascota"><strong>Nombre</strong></label>
+          <input type="text" id="nombreMascota" name="nombreMascota" required />
+        </div>
+        <div class="contenedor-campo">
+          <label for="especie"><strong>Especie</strong></label>
+          <select id="especie" name="especie" required>
+            <option value="">Seleccione</option>
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+            <option value="Ave">Ave</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="contenedor-campo">
+          <label for="raza"><strong>Raza</strong></label>
+          <input type="text" id="raza" name="raza" />
+        </div>
+        <div class="contenedor-campo">
+          <label for="edad"><strong>Edad (en años)</strong></label>
+          <input type="number" id="edad" name="edad" min="0" />
+        </div>
+        <div class="contenedor-campo">
+          <label for="sexo"><strong>Sexo</strong></label>
+          <select id="sexo" name="sexo">
+            <option value="">Seleccione</option>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+          </select>
+        </div>
+        <div class="contenedor-campo">
+          <label for="peso"><strong>Peso (kg)</strong></label>
+          <input type="number" id="peso" name="peso" step="0.1" />
+        </div>
+        <div class="contenedor-campo">
+          <label for="color"><strong>Color</strong></label>
+          <input type="text" id="color" name="color" />
+        </div>
+        <div class="contenedor-campo">
+          <label for="foto"><strong>Foto</strong></label>
+          <input type="file" id="foto" name="foto" accept="image/*" />
+        </div>
+        <div class="contenedor-campo">
+          <label for="observaciones"><strong>Observaciones médicas</strong></label>
+          <textarea id="observaciones" name="observaciones" rows="3"></textarea>
+        </div>
+        <div class="button-seccion">
+          <button type="reset">Limpiar</button>
+          <button type="submit">Registrar Mascota</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 App Cannia. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
